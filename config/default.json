@@ -1,0 +1,10 @@
+{
+  "db": {
+    "user": "api"
+  },
+  "auth": {
+    "passwordRegExp": "^.{8,72}$"
+  },
+  "expirationYear": "9001-01-01T23:59:59+00:00",
+  "port": 3103
+}

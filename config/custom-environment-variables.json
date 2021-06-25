@@ -1,0 +1,8 @@
+{
+  "db": {
+    "pwd": "DB_PSWD",
+    "db": "DB_CONNECTION_STRING",
+    "readPreference": "DB_READ_PREFERENCE"
+  },
+  "secret": "JWT_SECRET"
+}
