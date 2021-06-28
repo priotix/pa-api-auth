@@ -1,5 +1,4 @@
-const lodash = require('lodash');
-const { Request, oauth2, authServer } = require('../../libs/oauth2.js');
+const { Request, oauth2, authServer } = require('../../libs/oauth2');
 
 const UserModel = require('../models/user-model');
 const TokenModel = require('../models/token-model');
@@ -13,7 +12,7 @@ const controller = {};
 controller.login = async (ctx) => {
   const {
     email,
-    password
+    password,
   } = ctx.request.body;
 
   try {
@@ -51,7 +50,7 @@ controller.register = async (ctx) => {
   ctx.status = 200;
   ctx.body = {
     user,
-    accessToken: accessToken,
+    accessToken,
   };
 };
 

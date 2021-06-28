@@ -10,7 +10,7 @@ const authServer = new OAuth2Server({
 
 const oauth2 = {};
 
-oauth2.initResponse = ctx => new Response({
+oauth2.initResponse = (ctx) => new Response({
   headers: {
     ...ctx.response.headers,
   },

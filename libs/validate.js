@@ -31,7 +31,7 @@ function getInputValidator(validationSchema) {
       if (res.error) {
         const { error } = res;
         if (error.details && error.details.length) {
-          const errors = error.details.map(err => ({
+          const errors = error.details.map((err) => ({
             message: err.message,
             slug: `invalid-${err.context.key}-${err.type.replace(/\./g, '-').toLowerCase()}`,
             details: { path: err.path },

@@ -4,7 +4,6 @@ const Mongoose = bluebird.promisifyAll(require('mongoose'));
 const JWT = require('jsonwebtoken');
 
 const BadRequestError = require('../../libs/errors/base-error');
-const NotFoundError = require('../../libs/errors/not-found-error');
 const TokenExpiredError = require('../../libs/errors/token-expired-error');
 
 const TokenSchema = new Mongoose.Schema(
@@ -25,7 +24,7 @@ const TokenSchema = new Mongoose.Schema(
     writeConcern: {
       w: 'majority',
       j: true,
-      wtimeout: 5000
+      wtimeout: 5000,
     },
   },
 );

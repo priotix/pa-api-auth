@@ -19,7 +19,6 @@ const UserSchema = new Mongoose.Schema({
 });
 
 let UserModel;
-let TokenModel;
 
 // enable tracking for create/update dates
 UserSchema.plugin(changeRecorder);
@@ -42,7 +41,7 @@ UserSchema.set('toJSON', {
 });
 
 UserSchema.statics.emailExists = async function emailExists(email) {
-  const count = await UserModel.count({ email });
+  const count = await UserModel.countDocuments({ email });
   return count > 0;
 };
 
@@ -71,5 +70,3 @@ UserSchema.statics.createUser = async function createUser(userData) {
 UserModel = Mongoose.model('User', UserSchema);
 
 module.exports = UserModel;
-
-TokenModel = require('./token-model');
