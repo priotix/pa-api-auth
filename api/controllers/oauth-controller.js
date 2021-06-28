@@ -40,7 +40,7 @@ controller.register = async (ctx) => {
   }
 
   const user = await UserModel.createUser(reqData);
-  const accessToken = await TokenModel.generateAccessToken(user);
+  const accessToken = await TokenModel.generateAccessToken(user, reqData.userID);
 
   await TokenModel.saveToken({
     accessToken,

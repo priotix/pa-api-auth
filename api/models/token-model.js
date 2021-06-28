@@ -45,12 +45,16 @@ TokenSchema.statics.verifyToken = async function verifyToken(token, options = {}
   });
 };
 
-TokenSchema.statics.generateAccessToken = async function generateAccessToken(user) {
+TokenSchema.statics.generateAccessToken = async function generateAccessToken(user, userID) {
   console.log(`Generating access token for user: ${user.id}`);
   const secret = config.get('secret');
-  const payload = { user };
+  const context = { userID };
+  const payload = {
+    user,
+    context,
+  };
 
-  const opt = { algorithm: 'HS256'};
+  const opt = { algorithm: 'HS256' };
 
   return JWT.sign(payload, secret, opt);
 };
@@ -86,7 +90,7 @@ TokenSchema.statics.getAccessToken = async function getAccessToken(accessToken) 
 
   return {
     accessToken: token.accessToken,
-    accessTokenExpiresAt: new Date(config.get('expirationYear')), 
+    accessTokenExpiresAt: new Date(config.get('expirationYear')),
     user,
   };
 };
