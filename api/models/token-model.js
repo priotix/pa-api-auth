@@ -45,10 +45,10 @@ TokenSchema.statics.verifyToken = async function verifyToken(token, options = {}
   });
 };
 
-TokenSchema.statics.generateAccessToken = async function generateAccessToken(user, userID) {
+TokenSchema.statics.generateAccessToken = async function generateAccessToken(user, userId) {
   console.log(`Generating access token for user: ${user.id}`);
   const secret = config.get('secret');
-  const context = { userID };
+  const context = { userId };
   const payload = {
     user,
     context,

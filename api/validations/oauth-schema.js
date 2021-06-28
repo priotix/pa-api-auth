@@ -7,7 +7,7 @@ schemes.register = {
   body: Joi.object().keys({
     email: Joi.string().email().required(),
     password: Joi.string().regex(new RegExp(config.get('auth.passwordRegExp')), 'valid password').required(),
-    userID: Joi.string().required(),
+    userId: Joi.string().required(),
   }),
 };
 
