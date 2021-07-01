@@ -4,10 +4,9 @@
 cp .env.dist .env
 ```
 in .env replace templates with real values
+
+here is example of db env for local setup (with docker network)
+
 ```
-DB_PSWD={{db-password}}
-HOST_ENV={{env}}
-NODE_ENV={{env}}
-JWT_SECRET={{secret}}
-DB_CONNECTION_STRING={{db-connection-string}}
-DB_READ_PREFERENCE={{primaryPreferred|secondary|secondaryPreferred|nearest}}
+DB_CONNECTION_STRING=mongodb://pa-users-db/api-auth
+```
